@@ -1,0 +1,30 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Jekyll build artifacts (GitHub Pages)
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+
+# Stata / R intermediate artifacts
+*.dta.bak
+*.log
+*.smcl
+.Rhistory
+.RData
+.Ruserdata
+
+# Python (in case any utility scripts are added)
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Large or sensitive raw inputs (publish only the final .dta files)
+raw/
+tmp/

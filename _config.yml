@@ -1,0 +1,7 @@
+title: Dataset with Probabilities of Inflation Disasters from Options Prices
+description: Download the dataset and view figures that use it
+baseurl: "/Test_densities"
+url: "https://nichtokay.github.io"
+github_username: nichtokay
+
+theme: jekyll-theme-cayman
