@@ -1,5 +1,5 @@
-title: Dataset with Probabilities of Inflation Disasters from Options Prices
-description: Download the dataset and view figures that use it
+title: Probability Densities of Future Inflation from Options Prices
+description: Download the density datasets (US & Euro Area, 5y and 10y horizons) and view figures
 baseurl: "/Test_densities"
 url: "https://nichtokay.github.io"
 github_username: nichtokay

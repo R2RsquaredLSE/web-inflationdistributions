@@ -1,59 +1,51 @@
 # Hand-off / setup notes (delete this file before publishing)
 
-This folder is a hand-off package mirroring the structure of
-`R2RsquaredLSE/web-inflationdisasters`, with data and figures organized into
-subfolders. Once the owner creates the GitHub repo and grants edit access,
-do the following before the first push.
+This folder mirrors the structure of `R2RsquaredLSE/web-inflationdisasters`, adapted to publish **probability densities of future inflation** rather than disaster probabilities. Once the final owner creates the GitHub repo and grants edit access, the only remaining steps are:
 
 ## Folder layout
 
 ```
 .
-├── README.md              # Top-level project page (rendered by GitHub Pages)
-├── LICENSE                # MIT — fill in the copyright holder
-├── _config.yml            # Jekyll config — fill in repo/owner placeholders
+├── README.md              # Top-level page (rendered by GitHub Pages)
+├── LICENSE                # MIT
+├── _config.yml            # Jekyll config (title, baseurl, theme)
 ├── .gitignore
 ├── 25-infdis-bib.bib      # Bibliography entry for the paper
-├── data/                  # Stata .dta files go here
-│   └── README.md          # (lists expected filenames)
-└── figures/               # PNG figures go here
-    └── README.md          # (lists expected filenames)
+├── data/                  # csv / dta / xlsx, one of each per series
+│   ├── README.md
+│   ├── US_5y_dens.{csv,dta,xlsx}
+│   ├── US_10y_dens.{csv,dta,xlsx}
+│   ├── EZ_5y_dens.{csv,dta,xlsx}
+│   └── EZ_10y_dens.{csv,dta,xlsx}
+└── figures/               # PDF + PNG preview per series
+    ├── README.md
+    ├── US_5y_dens.{pdf,png}
+    ├── US_10y_dens.{pdf,png}
+    ├── EZ_5y_dens.{pdf,png}
+    └── EZ_10y_dens.{pdf,png}
 ```
 
-## 1. Fill in placeholders
+## Placeholders to fill when handing off to a different owner
 
-- **`LICENSE`** — replace `{{COPYRIGHT_HOLDER}}` with the chosen copyright
-  holder (e.g. the GitHub org/user name, or the authors).
-- **`_config.yml`** — replace:
-  - `{{REPO_NAME}}` with the new repo name (used as the GitHub Pages baseurl).
-  - `{{GITHUB_USERNAME}}` with the owner's GitHub username (twice — once in
-    `url`, once in `github_username`).
+- **`LICENSE`** — currently reads "Copyright (c) 2026 Nicholas Tokay" (trial). Replace with the final copyright holder.
+- **`_config.yml`** — currently set to `nichtokay` / `Test_densities`. Replace `baseurl`, `url`, and `github_username` with the new owner's values.
 
-## 2. Drop in the data and figures
+## Updating the data later
 
-**`data/`** (Stata):
-- `USwestimates.dta`
-- `EZwestimates.dta`
+Drop new csv/dta/xlsx files into `data/` (same names) and new PDFs into `figures/`. To refresh the inline PNG previews:
 
-**`figures/`** (PNG):
-- `figw_USinfshort.png`
-- `figw_EZinfshort.png`
-- `figw_USdefshort.png`
-- `figw_EZdefshort.png`
-- `figw_shorthorizon.png`
-- `figw_USdensities.png`
-- `figw_EZdensities.png`
+```
+cd figures
+python -c "import fitz
+for n in ['US_5y','US_10y','EZ_5y','EZ_10y']:
+    d=fitz.open(f'{n}_dens.pdf'); d[0].get_pixmap(matrix=fitz.Matrix(2,2)).save(f'{n}_dens.png'); d.close()"
+```
 
-**Paper (optional):**
-- `25-infdis.pdf` at the repo root, if hosting the PDF alongside the data.
+Then `git add . && git commit -m "Update vintage" && git push`.
 
-## 3. Enable GitHub Pages
+## Enable GitHub Pages (first time only)
 
-After the first push:
-1. Repo Settings → Pages → Source = `Deploy from a branch`, Branch = `main`, Folder = `/ (root)`.
-2. Wait ~1 minute, then visit `https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/`.
+Repo Settings → Pages → Source = *Deploy from a branch*, Branch = `main`, Folder = `/ (root)` → Save. Visit `https://<owner>.github.io/<repo>/`.
 
-## 4. Delete this file (and the per-folder READMEs if desired)
-`rm SETUP_NOTES.md` (or via the GitHub UI) once everything is in place.
-The `data/README.md` and `figures/README.md` files can be kept as helpful
-documentation or deleted once the real files are added.
+## Delete this file
+`git rm SETUP_NOTES.md && git commit -m "Remove hand-off notes" && git push` once everything is in place.
