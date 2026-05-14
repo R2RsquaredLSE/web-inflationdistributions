@@ -3,6 +3,7 @@
 The prices of inflation options give the cost of insuring against extreme events. They reveal the **full probability distribution of future inflation** as perceived by market participants. To construct these distributions at horizons beyond the immediate, the standard option pricing formulas have to be modified in three ways: to account for the erosion of the real value of the options' payoff, to account for the forward starting horizon, and to account for the compensation for inflation risk. Below are estimated probability densities of average future inflation, making these adjustments. The data starts in October 2009 (US) / January 2010 (Euro Area) and covers monthly snapshots through February 2026. This dataset can be **freely used** by other researchers.
 
 The dataset will be updated regularly to reflect the latest data.
+- **Vintage 1:** The dataset was first released in May 2026 to cover densities until February 2026.
 
 ---
 
