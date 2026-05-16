@@ -1,6 +1,8 @@
 .
 # Summary
-The prices of inflation options give the cost of insuring against extreme events. They reveal the **full probability distribution of future inflation** as perceived by market participants. To construct these distributions at horizons beyond the immediate, the standard option pricing formulas have to be modified in three ways: to account for the erosion of the real value of the options' payoff, to account for the forward starting horizon, and to account for the compensation for inflation risk. Below are estimated probability densities of average future inflation, making these adjustments. The data starts in October 2009 (US) / January 2010 (Euro Area) and covers monthly snapshots through February 2026. This dataset can be **freely used** by other researchers.
+The prices of inflation options at different strike prices give the cost of insuring against different realisations of inflation. They reveal the **full probability distribution of future inflation** as perceived by market participants. Hilscher, Raviv and Reis (2025) derive simple formulas to back out the probabilities from the prices that crucially take into account the rosion of the option payoff when inflation is higher than expected. They also describe an approach to use the sometimes-noisy price quotes in this sometimes-illiquid market to come up with reliable monthly estimates. This page reports monthly risk-neutral probability densities of average future inflation at the 5- and 10-year horizons, starting in October 2009 (US) / January 2010 (Euro Area). This dataset can be **freely used** by other researchers.
+
+Related: Using these probability distributions, one can adjust for horizon and for risk compensation, to get actual probability densities for inflation disasters at 5y5y horizons. See: [Dataset with Probabilities of Inflation Disasters from Options Prices](https://r2rsquaredlse.github.io/web-inflationdisasters/)
 
 The dataset will be updated regularly to reflect the latest data.
 - **Vintage 1:** The dataset was first released in May 2026 to cover densities until February 2026.
@@ -18,11 +20,11 @@ The dataset will be updated regularly to reflect the latest data.
 ---
 
 # Probability densities
-For each region and horizon, the dataset gives the full estimated density of average annualized inflation over the horizon, sampled at **21 support points** (every 0.5 percentage point from −3% to +7%), at monthly snapshot dates.
+For each region and horizon at each month, the dataset gives the estimated **risk-neutral density** (Q-measure) of average annualized inflation over the horizon, sampled at **21 support points** (every 0.5 percentage point from −3% to +7%). These include risk compensation; they would coincide with actual probabilities if investors were risk neutral.
 
 Each series is available in four formats — Stata, Excel, comma-separated, and a PDF figure of the latest snapshot.
 
-| Region & horizon | Stata | Excel | CSV | PDF figure |
+| Region & horizon | Stata | Excel | CSV | PDF |
 |---|---|---|---|---|
 | United States, 5-year  | [.dta](data/US_5y_dens.dta)  | [.xlsx](data/US_5y_dens.xlsx)  | [.csv](data/US_5y_dens.csv)  | [.pdf](figures/US_5y_dens.pdf)  |
 | United States, 10-year | [.dta](data/US_10y_dens.dta) | [.xlsx](data/US_10y_dens.xlsx) | [.csv](data/US_10y_dens.csv) | [.pdf](figures/US_10y_dens.pdf) |
@@ -60,28 +62,28 @@ Each file is a long-format time series with three columns.
 ## United States, 5-year horizon
 ![US 5y densities](figures/US_5y_dens.png)
 
-Probability densities for US inflation averaged over the next 5 years, shown at selected snapshot dates.
+Risk-neutral probability densities for US inflation averaged over the next 5 years, shown at selected snapshot dates.
 
 ---
 
 ## United States, 10-year horizon
 ![US 10y densities](figures/US_10y_dens.png)
 
-Probability densities for US inflation averaged over the next 10 years, shown at selected snapshot dates.
+Risk-neutral probability densities for US inflation averaged over the next 10 years, shown at selected snapshot dates.
 
 ---
 
 ## Euro Area, 5-year horizon
 ![EA 5y densities](figures/EZ_5y_dens.png)
 
-Probability densities for Euro Area inflation averaged over the next 5 years, shown at selected snapshot dates.
+Risk-neutral probability densities for Euro Area inflation averaged over the next 5 years, shown at selected snapshot dates.
 
 ---
 
 ## Euro Area, 10-year horizon
 ![EA 10y densities](figures/EZ_10y_dens.png)
 
-Probability densities for Euro Area inflation averaged over the next 10 years, shown at selected snapshot dates.
+Risk-neutral probability densities for Euro Area inflation averaged over the next 10 years, shown at selected snapshot dates.
 
 ---
 
