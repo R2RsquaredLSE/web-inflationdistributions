@@ -57,31 +57,29 @@ Each file is a long-format time series with three columns.
 
 # Latest Figures
 
-Each figure overlays selected snapshot dates (e.g. Mar 2020 through Mar 2024) so the post-COVID shift in inflation expectations is visible. Click to download the PDF.
-
 ## United States, 5-year horizon
-📄 [Download figure (PDF)](figures/US_5y_dens.pdf)
+![US 5y densities](figures/US_5y_dens.png)
 
 Probability densities for US inflation averaged over the next 5 years, shown at selected snapshot dates.
 
 ---
 
 ## United States, 10-year horizon
-📄 [Download figure (PDF)](figures/US_10y_dens.pdf)
+![US 10y densities](figures/US_10y_dens.png)
 
 Probability densities for US inflation averaged over the next 10 years, shown at selected snapshot dates.
 
 ---
 
 ## Euro Area, 5-year horizon
-📄 [Download figure (PDF)](figures/EZ_5y_dens.pdf)
+![EA 5y densities](figures/EZ_5y_dens.png)
 
 Probability densities for Euro Area inflation averaged over the next 5 years, shown at selected snapshot dates.
 
 ---
 
 ## Euro Area, 10-year horizon
-📄 [Download figure (PDF)](figures/EZ_10y_dens.pdf)
+![EA 10y densities](figures/EZ_10y_dens.png)
 
 Probability densities for Euro Area inflation averaged over the next 10 years, shown at selected snapshot dates.
 

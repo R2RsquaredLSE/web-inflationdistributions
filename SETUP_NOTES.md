@@ -17,11 +17,11 @@ This folder mirrors the structure of `R2RsquaredLSE/web-inflationdisasters`, ada
 │   ├── US_10y_dens.{csv,dta,xlsx}
 │   ├── EZ_5y_dens.{csv,dta,xlsx}
 │   └── EZ_10y_dens.{csv,dta,xlsx}
-└── figures/               # one PDF per series
-    ├── US_5y_dens.pdf
-    ├── US_10y_dens.pdf
-    ├── EZ_5y_dens.pdf
-    └── EZ_10y_dens.pdf
+└── figures/               # PDF + PNG preview per series
+    ├── US_5y_dens.{pdf,png}
+    ├── US_10y_dens.{pdf,png}
+    ├── EZ_5y_dens.{pdf,png}
+    └── EZ_10y_dens.{pdf,png}
 ```
 
 ## Placeholders to fill when handing off to a different owner
@@ -31,15 +31,16 @@ This folder mirrors the structure of `R2RsquaredLSE/web-inflationdisasters`, ada
 
 ## Updating the data later
 
-Drop new csv/dta/xlsx files into `data/` (same names) and new PDFs into `figures/`. Then:
+Drop new csv/dta/xlsx files into `data/` (same names) and new PDFs into `figures/`. To refresh the inline PNG previews:
 
 ```
-git add .
-git commit -m "Update vintage"
-git push
+cd figures
+python -c "import fitz
+for n in ['US_5y','US_10y','EZ_5y','EZ_10y']:
+    d=fitz.open(f'{n}_dens.pdf'); d[0].get_pixmap(matrix=fitz.Matrix(2,2)).save(f'{n}_dens.png'); d.close()"
 ```
 
-If at some point you want inline figure previews on the page (instead of PDF download links), regenerate PNGs from the PDFs with PyMuPDF and add them alongside, then point the README's image syntax at the PNGs.
+Then `git add . && git commit -m "Update vintage" && git push`.
 
 ## Enable GitHub Pages (first time only)
 
