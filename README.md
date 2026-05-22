@@ -6,6 +6,7 @@ Related: Using these probability distributions, one can adjust for horizon and f
 
 The dataset will be updated regularly to reflect the latest data.
 - **Vintage 1:** The dataset was first released in May 2026 to cover densities until February 2026.
+- **Vintage 2:** The dataset was updated in May 2026 to cover probabilities until April 2026.
 
 ---
 
